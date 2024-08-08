@@ -1,0 +1,649 @@
+[general]
+persistentmembers = yes
+;monitor-type=mixmonitor
+;monitor-format = wav
+
+[TEST-IN]
+wrapuptime=0
+joinempty = yes
+;monitor-type=mixmonitor
+monitor-type 	= Monitor
+monitor-format	= wav
+monitor-join	= yes
+context = tac-queue-ivr
+strategy = ringall
+announce-round-seconds = 5
+reportholdtime = yes
+;monitor-format = wav
+timeout = 15
+music = default
+announce-frequency = 30
+announce-holdtime = no
+queue-youarenext = queue-youarenext
+queue-thereare = queue-thereare
+queue-callswaiting = queue-callswaiting
+queue-thankyou = queue-thankyou
+queue-minutes = queue-minutes
+queue-seconds = queue-seconds
+queue-reporthold = queue-reporthold
+;reportholdtime = yes
+;servicelevel = 60
+
+[TAC-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type 	= Monitor
+;monitor-format	= wav
+;monitor-join	= yes
+;context = tac-queue-ivr
+context=recordnumber
+;strategy = ringall
+strategy = leastrecent
+setinterfacevar=yes
+autofill = yes
+timeout = 10
+retry = 4
+ringinuse = no
+timeoutpriority = app
+;music = pakistan
+music = tactel
+;music = corona
+;periodic-announce = getcboption
+;periodic-announce = getcboptiontac  ;As per Zaki bhai email on 23/02/2022
+;periodic-announce = periodictac
+periodic-announce = periodic_14_9_22 ; changed on req of bilal bhai on 15/9/22 by ayeshay ngn
+periodic-announce-frequency = 60   ;As per Zaki bhai email on 9/9/2023
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes 
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+member => SIP/249
+
+
+[SAL-IN]
+wrapuptime=10
+joinempty = yes
+autofill = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context = recordnumsal
+setinterfacevar=yes
+strategy = leastrecent     ; DOne on 13 March on Salman Bhai req
+;strategy = ringall
+timeout = 10
+retry = 2
+;music = pakistan
+music = pak
+;music = corona
+ringinuse = no
+;periodic-announce = getcboptions
+periodic-announce = getcboptionssales
+periodic-announce-frequency =90
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+;member => SIP/245
+
+;[SALINFO-IN]
+;wrapuptime=10
+;joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+;strategy = ringall
+;timeout = 15
+;music = SAL2
+;announce-frequency = 30
+;announce-holdtime = no
+;announce-round-seconds = 9
+;queue-youarenext = newivr/queue_youarenext
+;queue-thereare = newivr/queue_thereare 
+;queue-callswaiting = newivr/queue_callswaiting
+;queue-thankyou = queue-thankyoutoooo 
+
+
+[BIL-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context = recordnumbil
+;strategy = ringall
+setinterfacevar=yes
+strategy = leastrecent
+autofill = yes
+timeout = 10
+retry = 2
+ringinuse = no
+timeoutpriority = app
+;;music = lock
+music = pak
+;music = corona
+;periodic-announce = cboptionsbill
+periodic-announce = cboptionsbillnew
+periodic-announce-frequency =90
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+
+;[SYS-IN]
+;wrapuptime=10
+;joinempty = yes
+;;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+;strategy = ringall
+;timeout = 15
+;music = NTL
+;announce-frequency = 30
+;announce-holdtime = no
+;announce-round-seconds = 6
+;queue-youarenext = newivr/queue_youarenext
+;queue-thereare = newivr/queue_thereare 
+;queue-callswaiting = newivr/queue_callswaiting
+;queue-thankyou = queue-thankyoutoooo 
+
+[ACC-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+context = tac-queue-ivr
+strategy = ringall
+timeout = 15
+ringinuse = no
+;music = pakistan
+music = pak
+announce-frequency = 30
+announce-holdtime = no
+announce-round-seconds = 6
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+
+[COR-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+context = tac-queue-ivr
+strategy = ringall
+timeout = 15
+setinterfacevar=yes
+ringinuse = no
+;music = pakistan
+music = pak
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+
+[TX-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context=recordnumber
+strategy = ringall
+setinterfacevar=yes
+autofill = yes
+timeout = 15
+ringinuse = no
+timeoutpriority = app
+;music = pakistan
+music = pak
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+
+[salfsd-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context = recordnumsalfsd
+strategy = ringall
+timeout = 15
+ringinuse = no
+;music = pakistan
+music = pak
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+;member => SIP/407
+;member => SIP/5310
+
+
+[salpwr-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context = recordnumsal
+strategy = ringall
+timeout = 15
+ringinuse = no
+;music = pakistan
+music = pak
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+member => SIP/408
+member => SIP/5308
+
+[salsgd-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context = recordnumsalsgd
+strategy = ringall
+timeout = 15
+ringinuse = no
+;music = pakistan
+music = pak
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+;member => SIP/409
+;member => SIP/5301
+
+
+[salgrw-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context = recordnumsalgrw
+strategy = ringall
+timeout = 15
+ringinuse = no
+;music = pakistan
+music = pak
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+
+
+
+
+[BD-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context = recordnumbd
+strategy = ringall
+timeout = 15
+ringinuse = no
+;music = pakistan
+music = pak
+nnounce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+member => SIP/2590
+
+
+
+
+
+
+[L2TEST-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+;context = tac-queue-ivr
+context = recordl2test
+strategy = leastrecent
+timeout = 15
+retry=4
+ringinuse = no
+;music = pakistan
+music = mehtest
+periodic-announce = getcboptions
+periodic-announce-frequency = 90
+announce-frequency = 30
+announce-holdtime = no
+announce-round-seconds = 6
+queue-youarenext = newivr/queue_youarenext
+queue-thereare = newivr/queue_thereare
+queue-callswaiting = newivr/queue_callswaiting
+queue-thankyou = queue-thankyoutoooo
+
+
+[Operator-In]
+wrapuptime=1
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type   = Monitor
+;monitor-format = wav
+;monitor-join   = yes
+;context = tac-queue-ivr
+context=recordnumber
+strategy = ringall
+setinterfacevar=yes
+autofill = yes
+timeout = 10
+retry = 4
+context = tac-queue-ivr
+strategy = ringall
+timeout = 15
+ringinuse = no
+;music = pakistan
+music = pak
+announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+member => SIP/441
+
+[Muuds-In]
+wrapuptime=10
+joinempty = yes
+context=recordnumber
+strategy = leastrecent
+setinterfacevar=yes
+autofill = yes
+timeout = 10
+retry = 4
+ringinuse = no
+timeoutpriority = app
+music = pak
+periodic-announce = getcboption
+periodic-announce-frequency = 120
+announce-position = yes
+announce-frequency = 5
+announce-holdtime = yes
+announce-round-seconds = 10
+;;;;queue-holdtime = queue-holdtime
+queue-youarenext = newivr/queue_youarenextasd
+;;;;queue-thereare = newivr/queue_thereare
+;;;;queue-callswaiting = newivr/queue_callswaiting
+;;;;queue-thankyou = queue-thankyoutoooo
+reportholdtime = yes
+queue-youarenext = queuentl/queue_youarenext
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+queue-thankyou = queuentl/thank-you-for-calling
+
+[Muudsur-In]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type   = Monitor
+;monitor-format = wav
+;monitor-join   = yes
+;context = tac-queue-ivr
+context=recordnumber
+;strategy = ringall
+strategy = leastrecent
+setinterfacevar=yes
+autofill = yes
+timeout = 10
+retry = 4
+ringinuse = no
+timeoutpriority = app
+;music = pakistan
+music = corona
+periodic-announce = getcboption
+periodic-announce-frequency = 120
+;announce-position = yes
+;announce-frequency = 20
+announce-holdtime = yes
+announce-round-seconds = 5
+queue-holdtime = queue-holdtime
+queue-youarenext = newivr/queue_youarenext
+queue-thereare = newivr/queue_thereare
+queue-callswaiting = newivr/queue_callswaiting
+;queue-thankyou = queue-thankyoutoooo
+;reportholdtime = yes
+
+[NSS-Queue]
+wrapuptime=1
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type   = Monitor
+;monitor-format = wav
+;monitor-join   = yes
+context = NSS-Awam
+;context=recordnumber
+setinterfacevar=yes
+autofill = yes
+timeout = 10
+retry = 4
+;context = tac-queue-ivr
+strategy = ringall
+timeout = 15
+ringinuse = no
+music = pak
+member => SIP/701
+member => SIP/719
+member => SIP/720
+member => SIP/722
+member => SIP/721
+member => SIP/6700
+member => SIP/724
+member => SIP/725
+
+[zemtest]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type   = Monitor
+;monitor-format = wav
+;monitor-join   = yes
+;context = tac-queue-ivr
+context=cbtestzaeem
+;strategy = ringall
+strategy = leastrecent
+setinterfacevar=yes
+autofill = yes
+timeout = 10
+retry = 4
+ringinuse = no
+timeoutpriority = app
+;music = pakistan
+music = pak
+;music = corona
+;periodic-announce = getcboption
+;periodic-announce = getcboptionssales
+;periodic-announce-frequency = 30
+announce-position = yes
+announce-frequency = 60
+;announce-holdtime = yes
+;announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+;member => SIP/245
+
+[zemcbtest]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type   = Monitor
+;monitor-format = wav
+;monitor-join   = yes
+;context = tac-queue-ivr
+context=cbtest
+;strategy = ringall
+strategy = leastrecent
+setinterfacevar=yes
+autofill = yes
+timeout = 10
+retry = 4
+ringinuse = no
+timeoutpriority = app
+;music = pakistan
+music = pak
+;music = corona
+;periodic-announce = getcboption
+periodic-announce = getcboptiontac
+periodic-announce-frequency = 10
+announce-position = yes
+announce-frequency = 60
+;announce-holdtime = yes
+;announce-round-seconds = 5
+;queue-holdtime = queue-holdtime
+queue-youarenext = queuentl/queue_youarenext
+;queue-minutes = queue-minutes
+queue-thereare = queuentl/queue_thereare
+queue-callswaiting = queuentl/queue_callswaiting
+;reportholdtime = yes
+
+;================================86 queue Zaki SRF done by Umair=============================
+
+[CoreTac-IN]
+wrapuptime=10
+joinempty = yes
+;monitor-type=mixmonitor
+;monitor-type    = Monitor
+;monitor-format  = wav
+;monitor-join    = yes
+context = tac-queue-ivr
+strategy = ringall
+timeout = 15
+ringinuse = no
+;music = pakistan
+music = pak
+announce-frequency = 30
+announce-holdtime = no
+announce-round-seconds = 6
+queue-youarenext = newivr/queue_youarenext
+queue-thereare = newivr/queue_thereare
+queue-callswaiting = newivr/queue_callswaiting
+queue-thankyou = queue-thankyoutoooo
+;queue-holdtime = queue-holdtime
+queue-youarenext = newivr/queue_youarenext
+;queue-thereare = queue_thereare
+;queue-callswaiting = queue_callswaiting
+;;queue-thankyou = queue-thankyoutoooo
+;queue-minutes = queue-minutes
+;;reportholdtime = yes
+
+
+
+
+
+
+
